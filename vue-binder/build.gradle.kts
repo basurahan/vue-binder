@@ -44,7 +44,7 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            groupId = "link.limecode.vuebinder"
+            groupId = "com.github.basurahan"
             artifactId = "vue-binder"
             version = "1.0.0"
 
