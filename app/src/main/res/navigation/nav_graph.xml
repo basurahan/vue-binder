@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="link.limecode.sample.pages.HomeFragment"
+        android:name="link.limecode.sample.pages.home.HomeFragment"
         android:label="Home" />
 
     <fragment

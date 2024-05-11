@@ -1,4 +1,4 @@
-package link.limecode.sample.pages
+package link.limecode.sample.pages.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import link.limecode.sample.R
 import link.limecode.sample.databinding.FragmentHomeBinding
+import link.limecode.sample.pages.home.uimodels.UiUserListData
 import link.limecode.vuebinder.FragmentViewBinding
+import link.limecode.vuebinder.util.adapter.VueAdapter
 
 class HomeFragment : FragmentViewBinding<FragmentHomeBinding>() {
+
+    private lateinit var adapter: VueAdapter<UiUserListData>
 
     override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentHomeBinding {
         return FragmentHomeBinding.inflate(inflater, container, false)
@@ -18,8 +22,12 @@ class HomeFragment : FragmentViewBinding<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewBinding.about.setOnClickListener {
-            findNavController().navigate(R.id.about)
+        adapter = VueAdapter(initializer = { adapter ->
+
+        })
+
+        with(viewBinding) {
+
         }
     }
 }
