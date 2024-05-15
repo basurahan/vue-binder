@@ -8,6 +8,8 @@ Here's what VueBinder brings to the table:
 
 1. ActivityViewBinding - easily bind your activity views
 2. FragmentViewBinding - easiy bind your fragment views
+3. BaseHolder - easily bind your recyclerview holder
+4. VueAdapter - easily create multi type view list
 
 - Less Code, More Playtime: Spend less time writing boilerplate and more time making your app awesome. VueBinder streamlines the process, letting you focus on the good stuff.
 
