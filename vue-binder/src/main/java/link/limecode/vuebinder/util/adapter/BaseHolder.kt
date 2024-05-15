@@ -25,7 +25,9 @@ abstract class BaseHolder<T>(view: View) :
 
     open fun bind(item: T) {}
 
-    open fun bind(itemCount: Int, item: T) {}
+    open fun bind(itemCount: Int, item: T) {
+        bind(item)
+    }
 
     open fun updateWithPayloads(pos: Int, itemCount: Int, item: T, payloads: List<Any>) {}
 

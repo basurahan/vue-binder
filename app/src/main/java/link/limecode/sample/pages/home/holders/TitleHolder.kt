@@ -13,7 +13,7 @@ class TitleHolder(view: View, override val viewBinding: ItemTitleBinding) :
 
     override fun bind(item: UiUserListData.TitleData) {
         with(viewBinding) {
-
+            title.text = item.letter.toString()
         }
     }
 

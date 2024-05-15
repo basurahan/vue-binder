@@ -26,6 +26,8 @@ class HomeFragment : FragmentViewBinding<FragmentHomeBinding>() {
 
         adapter = VueAdapter(initializer = { adapter ->
 
+            adapter.diffUtilCallback = UserListDiffUtilCallbackImpl()
+
             adapter.holder {
                 viewType = R.layout.item_title
                 predicate = { it is UiUserListData.TitleData }
@@ -44,5 +46,167 @@ class HomeFragment : FragmentViewBinding<FragmentHomeBinding>() {
                 generator = { EmptyHolder.buildHolder(it) }
             }
         })
+
+        with(viewBinding) {
+            userList.adapter = adapter
+
+            adapter.setItems(
+                listOf(
+                    UiUserListData.TitleData('A'),
+                    UiUserListData.UserData(
+                        firstName = "Abigail",
+                        lastName = "Nadine"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Arctic",
+                        lastName = "Freezer"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Aaron",
+                        lastName = "Samuel"
+                    ),
+                    UiUserListData.TitleData('D'),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "De Angelo",
+                        lastName = "Russel"
+                    ),
+                    UiUserListData.TitleData('J'),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    ),
+                    UiUserListData.UserData(
+                        firstName = "Jayce",
+                        lastName = "Lapitan"
+                    )
+                )
+            )
+        }
     }
 }
