@@ -46,7 +46,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.basurahan"
             artifactId = "vue-binder"
-            version = "1.0.0"
+            version = "1.4.0"
 
             afterEvaluate {
                 from(components.getAt("release"))
