@@ -39,7 +39,7 @@ P.S.  VueBinder isn't affiliated with any actual butter or toast companies (yet)
     }
     ```
 
-**Usage**
+**Usage (See example on :app module for more information)**
 
 Fragment
 ```
@@ -70,6 +70,82 @@ class MainActivity : ActivityViewBinding<ActivityMainBinding>() {
 
     override fun bind(inflater: LayoutInflater): ActivityMainBinding {
         return ActivityMainBinding.inflate(inflater)
+    }
+}
+```
+RecylerView - Holder
+```
+class UserHolder(view: View, override val viewBinding: ItemUserBinding) :
+    BaseHolder<UiUserListData.UserData>(view) {
+
+    override fun bind(item: UiUserListData.UserData) {
+        with(viewBinding) {
+            name.text = getString(R.string.template_name, item.firstName, item.lastName)
+        }
+    }
+
+    companion object : HolderFactory<UserHolder> {
+
+        override fun buildHolder(parent: ViewGroup): UserHolder {
+            val inflater = LayoutInflater.from(parent.context)
+            val binding = ItemUserBinding.inflate(inflater, parent, false)
+            return UserHolder(
+                view = binding.root,
+                viewBinding = binding
+            )
+        }
+    }
+}
+```
+RecyclerView - Adapter
+```
+class HomeFragment : FragmentViewBinding<FragmentHomeBinding>() {
+
+    private lateinit var adapter: VueAdapter<UiUserListData>
+
+    override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(inflater, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = VueAdapter(initializer = { adapter ->
+
+            adapter.diffUtilCallback = UserListDiffUtilCallbackImpl()
+
+            adapter.holder {
+                viewType = R.layout.item_title
+                predicate = { it is UiUserListData.TitleData }
+                generator = { TitleHolder.buildHolder(it) }
+            }
+
+            adapter.holder {
+                viewType = R.layout.item_user
+                predicate = { it is UiUserListData.UserData }
+                generator = { UserHolder.buildHolder(it) }
+            }
+
+            adapter.holder {
+                viewType = R.layout.item_empty
+                predicate = { it is UiUserListData.Empty }
+                generator = { EmptyHolder.buildHolder(it) }
+            }
+        })
+
+        with(viewBinding) {
+            userList.adapter = adapter
+
+            adapter.setItems(
+                listOf(
+                    UiUserListData.TitleData('A'),
+                    UiUserListData.UserData(
+                        firstName = "Abigail",
+                        lastName = "Nadine"
+                    )
+                )
+            )
+        }
     }
 }
 ```
