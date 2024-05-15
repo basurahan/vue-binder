@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 class VueAdapter<T>(
-    protected val items: MutableList<T> = mutableListOf()
+    val items: MutableList<T> = mutableListOf()
 ) : RecyclerView.Adapter<BaseHolder<T>>() {
 
     var diffUtilCallback: VueDiffUtil<T>? = null

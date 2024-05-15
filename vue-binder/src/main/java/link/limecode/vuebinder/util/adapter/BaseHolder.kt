@@ -3,37 +3,31 @@ package link.limecode.vuebinder.util.adapter
 import android.content.Context
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.FontRes
-import androidx.annotation.LayoutRes
 import androidx.annotation.PluralsRes
 import androidx.annotation.StringRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseHolder<T> : RecyclerView.ViewHolder {
+abstract class BaseHolder<T>(view: View) :
+    RecyclerView.ViewHolder(view) {
+
+    protected abstract val viewBinding: ViewBinding
 
     @Suppress("MemberVisibilityCanBePrivate")
     protected val context: Context
         get() = itemView.context
 
-    constructor(v: View) : super(v)
+    open fun bind(item: T) {}
 
-    constructor(
-        @LayoutRes layoutRes: Int,
-        parent: ViewGroup
-    ) : super(LayoutInflater.from(parent.context).inflate(layoutRes, parent, false))
+    open fun bind(itemCount: Int, item: T) {}
 
-    fun bind(item: T) {}
-
-    fun bind(itemCount: Int, item: T) {}
-
-    fun updateWithPayloads(pos: Int, itemCount: Int, item: T, payloads: List<Any>) {}
+    open fun updateWithPayloads(pos: Int, itemCount: Int, item: T, payloads: List<Any>) {}
 
     protected fun getFont(@FontRes fontId: Int): Typeface {
         return requireNotNull(ResourcesCompat.getFont(context, fontId))

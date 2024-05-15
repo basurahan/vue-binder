@@ -4,4 +4,6 @@
     <string name="this_is_the_homepage">This is the home page</string>
     <string name="this_is_about_page">This is the about page</string>
     <string name="go_back">go back</string>
+
+    <string name="template_name">%1$s %2$s</string>
 </resources>
