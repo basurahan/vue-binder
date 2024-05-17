@@ -30,7 +30,7 @@ android {
     }
 
     kotlin {
-        jvmToolchain(17)
+        jvmToolchain(8)
     }
 }
 
@@ -46,7 +46,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.basurahan"
             artifactId = "vue-binder"
-            version = "1.4.0"
+            version = "1.4.1"
 
             afterEvaluate {
                 from(components.getAt("release"))
