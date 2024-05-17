@@ -4,7 +4,7 @@ Tired of boilerplate code that makes view binding feel like wrangling toddlers? 
 
 VueBinder is like that friend who always knows how to make things fun. It takes the tedious task of view binding and injects a healthy dose of simplicity. No more findViewById woes or findViewById foes (because with VueBinder, they won't exist!).
 
-!()[https://github.com/basurahan/vue-binder/blob/main/demo.gif]
+![](https://github.com/basurahan/vue-binder/blob/main/demo.gif)
 
 Here's what VueBinder brings to the table:
 
