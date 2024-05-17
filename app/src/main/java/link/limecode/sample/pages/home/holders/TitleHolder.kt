@@ -17,9 +17,9 @@ class TitleHolder(view: View, override val viewBinding: ItemTitleBinding) :
         }
     }
 
-    companion object : HolderFactory<TitleHolder> {
+    companion object : HolderFactory<TitleHolder, Unit?> {
 
-        override fun buildHolder(parent: ViewGroup): TitleHolder {
+        override fun buildHolder(parent: ViewGroup, interactor: Unit?): TitleHolder {
             val inflater = LayoutInflater.from(parent.context)
             val binding = ItemTitleBinding.inflate(inflater, parent, false)
             return TitleHolder(

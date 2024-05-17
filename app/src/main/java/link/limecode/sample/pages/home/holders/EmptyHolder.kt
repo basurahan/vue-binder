@@ -11,9 +11,9 @@ import link.limecode.vuebinder.util.adapter.HolderFactory
 class EmptyHolder(view: View, override val viewBinding: ItemEmptyBinding) :
     BaseHolder<UiUserListData.Empty>(view) {
 
-    companion object : HolderFactory<EmptyHolder> {
+    companion object : HolderFactory<EmptyHolder, Unit?> {
 
-        override fun buildHolder(parent: ViewGroup): EmptyHolder {
+        override fun buildHolder(parent: ViewGroup, interactor: Unit?): EmptyHolder {
             val inflater = LayoutInflater.from(parent.context)
             val bind = ItemEmptyBinding.inflate(inflater, parent, false)
             return EmptyHolder(
